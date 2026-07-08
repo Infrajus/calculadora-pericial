@@ -1,480 +1,1036 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>InfraJus — Calculadora de Precificação Pericial</title>
+<title>InfraJus | Calculadora de Precificação Pericial</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Allura&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
 
 <style>
 
 :root{
-    --couro:#B89B7A;
-    --couro-claro:#D8C3A5;
-    --bege:#F8F4EC;
-    --bege2:#EFE5D5;
-    --marrom:#3A2418;
-    --marrom-profundo:#24150E;
-    --cobre:#A86F43;
-    --cobre-claro:#C99662;
-    --bronze:#8B5E3C;
-    --linha:#D1B28A;
-    --branco:#FFFFFF;
-    --sombra:rgba(58,36,24,.15);
+
+--camurca:#8A684D;
+--camurca-clara:#A88462;
+--marrom:#40271B;
+--marrom-profundo:#26150D;
+
+--bronze:#A66E3F;
+--bronze-claro:#D0A06A;
+--dourado:#C49A55;
+
+--papel:#B18A66;
+
+--campo:#D8B995;
+
+--texto:#2D1B12;
+
+--branco:#FFF9F0;
+
 }
 
+
+
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
+
+
 
 body{
 
-    margin:0;
+margin:0;
 
-    min-height:100vh;
+min-height:100vh;
 
-    background:
-    radial-gradient(circle at top left, rgba(255,255,255,.45), transparent 35%),
-    linear-gradient(
-        135deg,
-        #C8AA87 0%,
-        #E5D3B8 45%,
-        #B99168 100%
-    );
+font-family:'Inter',sans-serif;
 
-    font-family:'Inter',sans-serif;
+color:var(--texto);
 
-    color:var(--marrom);
 
-    -webkit-font-smoothing:antialiased;
+/* papel camurça */
+
+background:
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.18),
+transparent 30%
+),
+
+radial-gradient(
+circle at 80% 10%,
+rgba(255,220,180,.12),
+transparent 25%
+),
+
+linear-gradient(
+135deg,
+#9B7657,
+#7A573E,
+#B18A66
+);
+
 
 }
 
-
-/* =========================
-   CABEÇALHO PREMIUM
-========================= */
 
 
 .topbar{
 
-    padding:30px 45px;
 
-    display:flex;
+padding:28px 45px;
 
-    justify-content:space-between;
 
-    align-items:center;
+display:flex;
 
-    flex-wrap:wrap;
+justify-content:space-between;
 
-    gap:20px;
+align-items:center;
 
-    background:
-    linear-gradient(
-        120deg,
-        rgba(58,36,24,.96),
-        rgba(36,21,14,.95)
-    );
+flex-wrap:wrap;
 
-    border-bottom:2px solid var(--cobre);
 
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.18);
+background:
+
+linear-gradient(
+135deg,
+rgba(38,21,13,.95),
+rgba(64,39,27,.95)
+);
+
+
+border-bottom:
+
+2px solid var(--bronze);
+
+
+box-shadow:
+
+0 10px 35px rgba(0,0,0,.25);
+
 
 }
+
 
 
 .logo{
 
-    font-family:'Allura',cursive;
 
-    font-size:48px;
+font-family:'Allura',cursive;
 
-    color:var(--cobre-claro);
+font-size:52px;
 
-    letter-spacing:1px;
+color:var(--bronze-claro);
+
+line-height:1;
+
 
 }
+
 
 
 .logo-sub{
 
-    display:block;
 
-    font-family:'Inter',sans-serif;
+font-size:11px;
 
-    font-size:11px;
+letter-spacing:4px;
 
-    letter-spacing:4px;
+text-transform:uppercase;
 
-    text-transform:uppercase;
+color:#E5C49A;
 
-    color:#E5D3B8;
+margin-left:5px;
 
-    margin-top:-8px;
 
 }
+
 
 
 .tag{
 
-    color:#E7D8C4;
 
-    font-size:12px;
+font-size:12px;
 
-    letter-spacing:3px;
+letter-spacing:3px;
 
-    text-transform:uppercase;
+text-transform:uppercase;
+
+color:#E8D0B0;
+
 
 }
 
 
-/* =========================
-   CONTAINER PRINCIPAL
-========================= */
 
 
 .wrap{
 
-    max-width:1200px;
 
-    margin:auto;
+max-width:1200px;
 
-    padding:45px 25px 70px;
+margin:auto;
 
-    display:grid;
+padding:45px 25px 70px;
 
-    grid-template-columns:1.1fr .9fr;
 
-    gap:35px;
+display:grid;
+
+grid-template-columns:
+
+1.1fr .9fr;
+
+
+gap:35px;
+
 
 }
+
 
 
 @media(max-width:900px){
 
-    .wrap{
+.wrap{
 
-        grid-template-columns:1fr;
+grid-template-columns:1fr;
 
-    }
+}
 
 }
 
 
-/* =========================
-   CARTÕES
-========================= */
+
 
 
 .panel{
 
-    background:
 
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.85),
-        rgba(248,244,236,.96)
-    );
+background:
 
-    border:1px solid rgba(168,111,67,.45);
+linear-gradient(
+145deg,
+rgba(238,215,188,.94),
+rgba(207,174,135,.92)
+);
 
-    border-radius:18px;
 
-    padding:35px;
 
-    box-shadow:
+border:
 
-    0 20px 45px var(--sombra),
+1px solid rgba(208,160,106,.8);
 
-    inset 0 1px 0 rgba(255,255,255,.8);
 
-    backdrop-filter:blur(8px);
+border-radius:18px;
+
+
+padding:35px;
+
+
+
+box-shadow:
+
+
+0 18px 40px rgba(38,21,13,.25),
+
+
+inset 0 1px 2px rgba(255,255,255,.7);
+
+
 
 }
+
+
+
 
 
 .panel h2{
 
-    margin:0 0 8px;
 
-    font-family:'Cormorant Garamond',serif;
+font-family:'Cormorant Garamond',serif;
 
-    font-size:30px;
 
-    font-weight:700;
+font-size:32px;
 
-    color:var(--marrom);
+
+margin:0 0 8px;
+
+
+color:var(--marrom);
+
 
 }
+
 
 
 .sub{
 
-    color:#725644;
 
-    font-size:14px;
+font-size:14px;
 
-    line-height:1.6;
+line-height:1.6;
 
-    margin-bottom:30px;
+color:#593A28;
+
+margin-bottom:30px;
+
 
 }
 
 
-
-/* =========================
- CAMPOS
-========================= */
 
 
 .field{
 
-    margin-bottom:22px;
+
+margin-bottom:22px;
+
 
 }
+
+
 
 
 .field label{
 
-    display:block;
 
-    margin-bottom:8px;
+display:block;
 
-    font-size:12px;
 
-    text-transform:uppercase;
+font-size:12px;
 
-    letter-spacing:1px;
 
-    font-weight:600;
+font-weight:600;
 
-    color:var(--bronze);
+
+letter-spacing:1px;
+
+
+text-transform:uppercase;
+
+
+color:#5A3824;
+
+
+margin-bottom:8px;
+
 
 }
+
+
+
+
+/* campos com aparência de alto relevo */
 
 
 .field input,
+
 .field select{
 
-    width:100%;
 
-    padding:13px 15px;
+width:100%;
 
-    border-radius:10px;
 
-    border:
+padding:14px 16px;
 
-    1px solid var(--linha);
 
-    background:
+border-radius:12px;
 
-    linear-gradient(
-        145deg,
-        #FFFDF9,
-        #EFE5D5
-    );
 
-    color:var(--marrom);
 
-    font-size:15px;
+border:
 
-    transition:.3s;
+2px solid rgba(166,110,63,.65);
+
+
+
+background:
+
+linear-gradient(
+145deg,
+#E7CBA8,
+#C79B6E
+);
+
+
+
+color:#392318;
+
+
+font-size:15px;
+
+
+
+box-shadow:
+
+
+inset 3px 3px 7px rgba(80,45,20,.25),
+
+
+inset -3px -3px 7px rgba(255,240,210,.45),
+
+
+0 5px 10px rgba(60,35,20,.18);
+
+
+
+transition:.3s;
+
+
 
 }
+
 
 
 .field input:focus,
+
 .field select:focus{
 
-    outline:none;
 
-    border-color:var(--cobre);
+outline:none;
 
-    box-shadow:
 
-    0 0 0 4px rgba(168,111,67,.15);
+border-color:var(--dourado);
+
+
+
+box-shadow:
+
+
+0 0 0 4px rgba(196,154,85,.25),
+
+
+inset 3px 3px 7px rgba(80,45,20,.2);
+
 
 }
+
 
 
 .row2{
 
-    display:grid;
 
-    grid-template-columns:1fr 1fr;
+display:grid;
 
-    gap:20px;
+
+grid-template-columns:1fr 1fr;
+
+
+gap:20px;
+
 
 }
+
 
 
 @media(max-width:550px){
 
-    .row2{
+.row2{
 
-        grid-template-columns:1fr;
-
-    }
+grid-template-columns:1fr;
 
 }
+
+}
+ <!-- CONTINUAÇÃO DO HTML -->
+
+<style>
 
 
 .hint{
 
-    color:var(--cobre);
+font-size:12px;
 
-    font-size:12px;
+color:#8B572F;
 
-    margin-top:8px;
+margin-top:8px;
 
 }
 
-
-/* =========================
- BOTÕES
-========================= */
 
 
 .toggle{
 
-    display:flex;
+display:flex;
 
-    gap:12px;
+gap:12px;
 
 }
+
 
 
 .toggle button{
 
-    flex:1;
 
-    padding:13px;
+flex:1;
 
-    border-radius:10px;
 
-    cursor:pointer;
+padding:13px;
 
-    border:1px solid var(--linha);
 
-    background:#F8F0E4;
+border-radius:12px;
 
-    color:var(--marrom);
 
-    transition:.3s;
+border:2px solid rgba(166,110,63,.55);
+
+
+background:
+
+linear-gradient(
+145deg,
+#DDB98B,
+#BD8757
+);
+
+
+
+color:#3A2418;
+
+
+font-weight:600;
+
+
+cursor:pointer;
+
+
+box-shadow:
+
+3px 3px 8px rgba(70,40,20,.2),
+
+inset 1px 1px 2px rgba(255,255,255,.5);
+
+
+
+transition:.3s;
+
 
 }
+
 
 
 .toggle button:hover{
 
-    transform:translateY(-2px);
+transform:translateY(-2px);
 
 }
+
 
 
 .toggle button.active{
 
-    background:
 
-    linear-gradient(
-        135deg,
-        var(--cobre),
-        var(--bronze)
-    );
+background:
 
-    color:white;
+linear-gradient(
+135deg,
+#A66E3F,
+#D0A06A
+);
 
-    border-color:var(--cobre);
+
+color:white;
+
+
+border-color:#E0B47B;
+
 
 }
 
 
-/* =========================
- DETALHES
-========================= */
+
 
 
 details{
 
-    margin-top:30px;
 
-    border-top:1px solid var(--linha);
+margin-top:28px;
 
-    padding-top:20px;
+
+border-top:
+
+1px solid rgba(90,55,30,.25);
+
+
+padding-top:20px;
+
 
 }
+
 
 
 summary{
 
-    cursor:pointer;
 
-    color:var(--bronze);
+cursor:pointer;
 
-    font-weight:600;
 
-    letter-spacing:1px;
+font-size:12px;
 
-    text-transform:uppercase;
 
-    font-size:12px;
+font-weight:700;
+
+
+text-transform:uppercase;
+
+
+letter-spacing:1px;
+
+
+color:#68412A;
+
 
 }
 
 
+
+
+
+
+/* ===============================
+   PAINEL DE RESULTADO
+================================ */
+
+
+
+.resultado{
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+
+background:
+
+
+linear-gradient(
+145deg,
+#3B2417,
+#24140D
+);
+
+
+
+border:
+
+2px solid var(--bronze-claro);
+
+
+
+color:white;
+
+
+
+box-shadow:
+
+
+0 25px 55px rgba(0,0,0,.35),
+
+
+inset 0 0 30px rgba(208,160,106,.08);
+
+
+
+}
+
+
+
+
+.resultado:before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+inset:0;
+
+
+
+background:
+
+linear-gradient(
+120deg,
+transparent 30%,
+rgba(208,160,106,.08),
+transparent 70%
+);
+
+
+
+pointer-events:none;
+
+
+
+}
+
+
+
+
+
+/*
+Imagem da Justiça
+
+Arquivo:
+Screenshot_20260708_121250_Chrome.jpg
+
+Se estiver dentro da mesma pasta do index.html,
+este caminho funciona.
+
+*/
+
+
+.marca-justica{
+
+
+position:absolute;
+
+
+right:25px;
+
+
+top:25px;
+
+
+width:190px;
+
+
+opacity:.16;
+
+
+filter:
+
+sepia(30%)
+
+
+contrast(110%);
+
+
+
+z-index:0;
+
+
+
+}
+
+
+
+
+.resultado h2,
+
+
+.resultado .sub,
+
+
+.resultado .conteudo{
+
+
+position:relative;
+
+
+z-index:2;
+
+
+}
+
+
+
+
+.resultado h2{
+
+
+color:#E5C08B;
+
+
+font-size:34px;
+
+
+}
+
+
+
+.resultado .sub{
+
+
+color:#D6B794;
+
+
+}
+
+
+
+
+.case-name{
+
+
+font-family:'IBM Plex Mono',monospace;
+
+
+font-size:13px;
+
+
+color:#D8A86B;
+
+
+margin:25px 0;
+
+
+}
+
+
+
+
+
+.linha{
+
+
+display:flex;
+
+
+justify-content:space-between;
+
+
+align-items:center;
+
+
+padding:14px 0;
+
+
+border-bottom:
+
+1px solid rgba(255,255,255,.15);
+
+
+
+font-size:14px;
+
+
+}
+
+
+
+.linha strong{
+
+
+font-family:'IBM Plex Mono',monospace;
+
+
+color:#F0C98B;
+
+
+}
+
+
+
+
+
+
+.total-premium{
+
+
+margin-top:30px;
+
+
+padding:28px;
+
+
+border-radius:16px;
+
+
+background:
+
+
+linear-gradient(
+145deg,
+rgba(166,110,63,.65),
+rgba(80,45,20,.65)
+);
+
+
+
+border:
+
+2px solid #D0A06A;
+
+
+
+
+box-shadow:
+
+
+inset 0 0 20px rgba(255,210,140,.15),
+
+
+0 10px 25px rgba(0,0,0,.25);
+
+
+}
+
+
+
+
+.total-premium span{
+
+
+display:block;
+
+
+font-size:12px;
+
+
+letter-spacing:2px;
+
+
+text-transform:uppercase;
+
+
+color:#E9C998;
+
+
+}
+
+
+
+.total-premium strong{
+
+
+display:block;
+
+
+margin-top:12px;
+
+
+font-size:40px;
+
+
+font-family:'IBM Plex Mono',monospace;
+
+
+color:white;
+
+
+}
+
+
+
+
+
+
+
+.pagamento{
+
+
+margin-top:35px;
+
+
+}
+
+
+
+
+
+.pagamento h3{
+
+
+font-family:'Cormorant Garamond',serif;
+
+
+font-size:25px;
+
+
+color:#E4C08C;
+
+
+}
+
+
+
+
+
+
+.observacao{
+
+
+margin-top:30px;
+
+
+padding:18px;
+
+
+border-left:
+
+3px solid var(--bronze-claro);
+
+
+
+background:
+
+rgba(255,220,170,.08);
+
+
+
+color:#E4C9A5;
+
+
+
+font-size:13px;
+
+
+line-height:1.7;
+
+
+font-style:italic;
+
+
+}
+
+
+
+
 </style>
-</head>
-
-<body>
 
 
-<div class="topbar">
-
-    <div>
-
-        <div class="logo">
-            InfraJus
-        </div>
-
-        <span class="logo-sub">
-            Inteligência Pericial
-        </span>
-
-    </div>
 
 
-    <div class="tag">
-        Calculadora de Precificação
-    </div>
-
-</div>
 
 
 <div class="wrap">
-    <!-- PAINEL DE ENTRADA -->
+
+
 
 <div class="panel">
 
-<h2>Dados do caso</h2>
+
+
+<h2>
+Dados do caso
+</h2>
+
 
 <p class="sub">
-Insira as informações técnicas da perícia. A calculadora utiliza parâmetros de complexidade, especialização e tempo técnico para auxiliar na formação do valor profissional.
+Preencha as informações técnicas para estimar o valor profissional da perícia considerando especialização, complexidade e tempo técnico.
 </p>
+
+
 
 
 <div class="field">
 
-<label for="nomeCaso">
+<label>
 Nome do caso / cliente
 </label>
 
+
 <input 
-type="text" 
+type="text"
 id="nomeCaso"
 placeholder="Ex.: Silva vs. Silva — TJPR">
 
@@ -482,9 +1038,12 @@ placeholder="Ex.: Silva vs. Silva — TJPR">
 
 
 
+
+
 <div class="field">
 
-<label for="tipoPericia">
+
+<label>
 Tipo de perícia
 </label>
 
@@ -492,7 +1051,7 @@ Tipo de perícia
 <input 
 list="tiposPericia"
 id="tipoPericia"
-placeholder="Digite ou selecione a modalidade pericial">
+placeholder="Digite ou selecione">
 
 
 <datalist id="tiposPericia"></datalist>
@@ -500,7 +1059,10 @@ placeholder="Digite ou selecione a modalidade pericial">
 
 <div class="hint" id="hintPericia"></div>
 
+
 </div>
+
+
 
 
 
@@ -509,8 +1071,8 @@ placeholder="Digite ou selecione a modalidade pericial">
 
 <div class="field">
 
-<label for="tipoHora">
-Classificação da hora técnica
+<label>
+Tipo de hora
 </label>
 
 
@@ -520,88 +1082,13 @@ Classificação da hora técnica
 Hora técnica padrão
 </option>
 
+
 <option value="Especializada">
 Hora técnica especializada
 </option>
 
-</select>
-
-</div>
-
-
-
-
-<div class="field">
-
-<label for="complexidade">
-Nível de complexidade
-</label>
-
-
-<select id="complexidade">
-
-<option value="Baixa">
-Baixa (1,0x)
-</option>
-
-<option value="Media">
-Média (1,3x)
-</option>
-
-<option value="Alta">
-Alta (1,6x)
-</option>
-
-<option value="Excepcional">
-Excepcional (2,0x)
-</option>
 
 </select>
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="row2">
-
-
-<div class="field">
-
-<label for="horas">
-Horas técnicas estimadas
-</label>
-
-
-<input 
-type="number"
-id="horas"
-min="0"
-step="0.5"
-value="10">
-
-</div>
-
-
-
-<div class="field">
-
-<label for="parcelas">
-Parcelamento do saldo
-</label>
-
-
-<input 
-type="number"
-id="parcelas"
-min="1"
-step="1"
-value="6">
-
-</div>
 
 
 </div>
@@ -612,25 +1099,116 @@ value="6">
 <div class="field">
 
 <label>
-Atendimento urgente?
+Complexidade
 </label>
+
+
+<select id="complexidade">
+
+<option value="Baixa">
+Baixa (1,0x)
+</option>
+
+
+<option value="Media">
+Média (1,3x)
+</option>
+
+
+<option value="Alta">
+Alta (1,6x)
+</option>
+
+
+<option value="Excepcional">
+Excepcional (2,0x)
+</option>
+
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="row2">
+
+
+<div class="field">
+
+
+<label>
+Horas técnicas
+</label>
+
+
+<input 
+type="number"
+id="horas"
+value="10">
+
+
+</div>
+
+
+
+
+
+<div class="field">
+
+
+<label>
+Número de parcelas
+</label>
+
+
+<input
+type="number"
+id="parcelas"
+value="6">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="field">
+
+
+<label>
+Caso urgente?
+</label>
+
 
 
 <div class="toggle">
 
 
 <button 
-type="button"
 id="urgSim"
+type="button"
 onclick="setUrgencia(true)">
 Sim +25%
 </button>
 
 
+
 <button 
-type="button"
 id="urgNao"
 class="active"
+type="button"
 onclick="setUrgencia(false)">
 Não
 </button>
@@ -639,17 +1217,19 @@ Não
 </div>
 
 
+
 </div>
+
 
 
 
 
 <details>
 
-
 <summary>
 Parâmetros avançados
 </summary>
+
 
 
 
@@ -664,12 +1244,12 @@ Valor hora padrão
 
 
 <input 
-type="number"
 id="valorHoraPadrao"
+type="number"
 value="250">
 
-</div>
 
+</div>
 
 
 <div class="field">
@@ -679,10 +1259,11 @@ Valor hora especializada
 </label>
 
 
-<input 
-type="number"
+<input
 id="valorHoraEspecializada"
+type="number"
 value="400">
+
 
 </div>
 
@@ -698,14 +1279,15 @@ value="400">
 <div class="field">
 
 <label>
-Entrada padrão (%)
+Entrada (%)
 </label>
 
 
-<input 
-type="number"
+<input
 id="percEntrada"
+type="number"
 value="60">
+
 
 </div>
 
@@ -718,10 +1300,11 @@ Piso mínimo
 </label>
 
 
-<input 
-type="number"
+<input
 id="pisoMinimo"
+type="number"
 value="800">
+
 
 </div>
 
@@ -732,31 +1315,26 @@ value="800">
 </details>
 
 
-
 </div>
 
 
 
 
 
+<!-- RESULTADO -->
 
-<!-- RESULTADO PREMIUM -->
 
 <div class="panel resultado">
 
 
 
-<!--
-COLOQUE AQUI SUA IMAGEM DA JUSTIÇA
+<img 
+src="Screenshot_20260708_121250_Chrome.jpg"
+class="marca-justica">
 
-Exemplo:
-<img src="justica.png" class="marca-justica">
 
-Ela ficará discreta no canto superior direito.
--->
 
-<div class="marca-agua"></div>
-
+<div class="conteudo">
 
 
 <h2>
@@ -764,18 +1342,16 @@ Memorial de Precificação
 </h2>
 
 
-<p class="sub">
-Documento interno de análise técnica e composição de honorários periciais.
-</p>
 
+<p class="sub">
+Composição técnica de honorários periciais.
+</p>
 
 
 
 <div class="case-name" id="outCase">
 —
 </div>
-
-
 
 
 
@@ -793,11 +1369,10 @@ R$ 0
 
 
 
-
 <div class="linha">
 
 <span>
-Multiplicador técnico
+Multiplicador
 </span>
 
 <strong id="outMult">
@@ -808,12 +1383,10 @@ Multiplicador técnico
 
 
 
-
-
 <div class="linha">
 
 <span>
-Valor base calculado
+Valor base
 </span>
 
 <strong id="outBase">
@@ -824,12 +1397,10 @@ R$ 0
 
 
 
-
-
 <div class="linha">
 
 <span>
-Adicional urgência
+Urgência
 </span>
 
 <strong id="outUrg">
@@ -842,9 +1413,7 @@ R$ 0
 
 
 
-
 <div class="total-premium">
-
 
 <span>
 Valor total da perícia
@@ -862,22 +1431,19 @@ R$ 0
 
 
 
-
-
 <div class="pagamento">
 
 
 <h3>
-Estrutura financeira sugerida
+Estrutura de pagamento
 </h3>
-
 
 
 
 <div class="linha">
 
 <span>
-Entrada inicial
+Entrada
 </span>
 
 <strong id="outEntrada">
@@ -889,53 +1455,41 @@ R$ 0
 
 
 
-
 <div class="linha">
 
 <span>
-Saldo remanescente
+Saldo
 </span>
 
 <strong id="outSaldo">
 R$ 0
 </strong>
 
-
 </div>
-
-
 
 
 
 <div class="linha">
 
 <span>
-Valor por parcela
+Parcelas
 </span>
 
 <strong id="outParcela">
 R$ 0
 </strong>
 
-
 </div>
 
 
+
 </div>
-
-
 
 
 
 <div class="observacao">
 
-
-Este cálculo representa o valor técnico mínimo recomendado considerando tempo, especialização, complexidade e responsabilidade profissional envolvida.
-
-
-</div>
-
-
+Este valor representa a base técnica da prestação pericial considerando tempo, complexidade e responsabilidade profissional.
 
 </div>
 
@@ -943,227 +1497,15 @@ Este cálculo representa o valor técnico mínimo recomendado considerando tempo
 </div>
 
 
-<style>
-
-
-/* PAINEL DE RESULTADO */
-
-.resultado{
-
-position:relative;
-
-overflow:hidden;
-
-background:
-
-linear-gradient(
-145deg,
-#392116,
-#1F120C
-);
-
-color:white;
-
-border-color:var(--cobre);
-
-}
-
-
-
-.resultado h2{
-
-color:#F1D2A6;
-
-font-size:34px;
-
-}
-
-
-
-.resultado .sub{
-
-color:#D6BFA2;
-
-}
-
-
-
-.marca-agua{
-
-position:absolute;
-
-right:25px;
-
-top:20px;
-
-width:120px;
-
-height:120px;
-
-background-image:url("justica.png");
-
-background-size:contain;
-
-background-repeat:no-repeat;
-
-opacity:.12;
-
-}
-
-
-
-.case-name{
-
-font-family:'IBM Plex Mono';
-
-font-size:13px;
-
-color:#D7AA70;
-
-margin-bottom:25px;
-
-}
-
-
-
-
-.linha{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:14px 0;
-
-border-bottom:
-
-1px solid rgba(255,255,255,.15);
-
-font-size:14px;
-
-}
-
-
-
-.linha strong{
-
-font-family:'IBM Plex Mono';
-
-color:#F2D09A;
-
-}
-
-
-
-.total-premium{
-
-margin-top:28px;
-
-padding:25px;
-
-border-radius:15px;
-
-background:
-
-linear-gradient(
-135deg,
-rgba(201,150,98,.35),
-rgba(139,94,60,.25)
-);
-
-
-border:
-
-1px solid var(--cobre-claro);
-
-}
-
-
-.total-premium span{
-
-display:block;
-
-font-size:12px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#E8C99F;
-
-}
-
-
-
-.total-premium strong{
-
-display:block;
-
-margin-top:12px;
-
-font-size:38px;
-
-font-family:'IBM Plex Mono';
-
-color:white;
-
-}
-
-
-
-.pagamento{
-
-margin-top:30px;
-
-}
-
-
-
-.pagamento h3{
-
-font-family:'Cormorant Garamond';
-
-font-size:24px;
-
-color:#E8C99F;
-
-}
-
-
-
-
-.observacao{
-
-margin-top:30px;
-
-padding:18px;
-
-border-left:3px solid var(--cobre);
-
-background:rgba(255,255,255,.05);
-
-font-size:13px;
-
-line-height:1.7;
-
-color:#D9C4AA;
-
-font-style:italic;
-
-}
-
-
-    </style>
-    <script>
+</div>  
+<script>
 
 
 /*
-==================================================
-  BASE DE CONHECIMENTO PERICIAL
-  Sugestão automática de hora e complexidade
-==================================================
+====================================================
+BASE DE PERÍCIAS
+Sugestão automática de hora e complexidade
+====================================================
 */
 
 
@@ -1174,7 +1516,7 @@ const MAPA_PERICIA = {
 
 hora:"Padrao",
 complex:"Baixa",
-dica:"Análise documental objetiva com metodologia comparativa."
+dica:"Análise documental objetiva e comparação técnica."
 
 },
 
@@ -1184,10 +1526,9 @@ dica:"Análise documental objetiva com metodologia comparativa."
 
 hora:"Padrao",
 complex:"Media",
-dica:"Comparação gráfica, padrões de confronto e análise técnica."
+dica:"Análise de padrões gráficos, assinaturas e confronto técnico."
 
 },
-
 
 
 
@@ -1201,15 +1542,13 @@ dica:"Pode envolver reconstrução, análise técnica e múltiplas metodologias.
 
 
 
-
 "Prosopografia / reconhecimento facial":{
 
 hora:"Especializada",
 complex:"Alta",
-dica:"Análise antropométrica facial, pontos de referência e comparação técnica."
+dica:"Análise antropométrica facial e comparação de características."
 
 },
-
 
 
 
@@ -1217,10 +1556,9 @@ dica:"Análise antropométrica facial, pontos de referência e comparação téc
 
 hora:"Especializada",
 complex:"Excepcional",
-dica:"Área altamente especializada com conhecimento técnico específico."
+dica:"Área especializada envolvendo conhecimento técnico específico."
 
 },
-
 
 
 
@@ -1228,10 +1566,9 @@ dica:"Área altamente especializada com conhecimento técnico específico."
 
 hora:"Especializada",
 complex:"Alta",
-dica:"Reconstrução espacial através de imagens e dados métricos."
+dica:"Reconstrução técnica através de imagens e dados métricos."
 
 },
-
 
 
 
@@ -1239,7 +1576,7 @@ dica:"Reconstrução espacial através de imagens e dados métricos."
 
 hora:"Especializada",
 complex:"Excepcional",
-dica:"Alta responsabilidade técnica e maior complexidade operacional."
+dica:"Maior responsabilidade técnica e complexidade operacional."
 
 }
 
@@ -1250,19 +1587,13 @@ dica:"Alta responsabilidade técnica e maior complexidade operacional."
 
 
 
-/*
-==================================================
-  PREENCHIMENTO DO CAMPO DE SUGESTÕES
-==================================================
-*/
-
-
 const datalist =
 document.getElementById("tiposPericia");
 
 
 
-Object.keys(MAPA_PERICIA).forEach(nome=>{
+Object.keys(MAPA_PERICIA)
+.forEach(nome=>{
 
 
 const option =
@@ -1281,22 +1612,25 @@ datalist.appendChild(option);
 
 
 
+
 const $ = id =>
 document.getElementById(id);
 
 
 
 
-let urgente = false;
+
+let urgente=false;
+
 
 
 
 
 
 /*
-==================================================
-  BOTÃO URGÊNCIA
-==================================================
+====================================================
+BOTÃO URGÊNCIA
+====================================================
 */
 
 
@@ -1310,7 +1644,7 @@ urgente = valor;
 $("urgSim")
 .classList.toggle(
 "active",
-valor === true
+valor
 );
 
 
@@ -1318,7 +1652,7 @@ valor === true
 $("urgNao")
 .classList.toggle(
 "active",
-valor === false
+!valor
 );
 
 
@@ -1334,9 +1668,9 @@ calcular();
 
 
 /*
-==================================================
-  FORMATAÇÃO MONETÁRIA
-==================================================
+====================================================
+FORMATAÇÃO DE VALOR
+====================================================
 */
 
 
@@ -1347,9 +1681,13 @@ return Number(valor)
 .toLocaleString(
 "pt-BR",
 {
+
 style:"currency",
+
 currency:"BRL"
+
 }
+
 );
 
 
@@ -1363,13 +1701,13 @@ currency:"BRL"
 const MULT = {
 
 
-Baixa:1.0,
+Baixa:1,
 
 Media:1.3,
 
 Alta:1.6,
 
-Excepcional:2.0
+Excepcional:2
 
 
 };
@@ -1381,34 +1719,32 @@ Excepcional:2.0
 
 
 /*
-==================================================
-  SUGESTÃO AUTOMÁTICA DE PERÍCIA
-==================================================
+====================================================
+SUGESTÃO AUTOMÁTICA
+====================================================
 */
 
 
 $("tipoPericia")
 .addEventListener(
 "input",
-function(e){
+e=>{
 
 
-
-const dado =
+const resultado =
 MAPA_PERICIA[e.target.value];
 
 
 
-if(dado){
+if(resultado){
 
 
 $("tipoHora").value =
-dado.hora;
-
+resultado.hora;
 
 
 $("complexidade").value =
-dado.complex;
+resultado.complex;
 
 
 
@@ -1416,7 +1752,7 @@ $("hintPericia")
 .textContent =
 "Parâmetro sugerido: "
 +
-dado.dica;
+resultado.dica;
 
 
 
@@ -1445,16 +1781,15 @@ calcular();
 
 
 
-
-
 /*
-==================================================
-  EVENTOS DOS CAMPOS
-==================================================
+====================================================
+ATUALIZAÇÃO DOS CAMPOS
+====================================================
 */
 
 
 [
+
 
 "tipoHora",
 
@@ -1494,11 +1829,10 @@ calcular
 
 
 
-
 /*
-==================================================
-  CÁLCULO PRINCIPAL
-==================================================
+====================================================
+CÁLCULO PRINCIPAL
+====================================================
 */
 
 
@@ -1507,14 +1841,17 @@ function calcular(){
 
 
 const nome =
+
 $("nomeCaso")
 .value
 .trim();
 
 
 
+
 $("outCase")
 .textContent =
+
 nome || "—";
 
 
@@ -1522,7 +1859,9 @@ nome || "—";
 
 
 
+
 const tipoHora =
+
 $("tipoHora")
 .value;
 
@@ -1530,19 +1869,22 @@ $("tipoHora")
 
 
 
-
 const valorHora =
+
 
 tipoHora === "Especializada"
 
 ?
+
 
 parseFloat(
 $("valorHoraEspecializada")
 .value || 0
 )
 
+
 :
+
 
 parseFloat(
 $("valorHoraPadrao")
@@ -1556,17 +1898,15 @@ $("valorHoraPadrao")
 
 
 
-const complexidade =
-$("complexidade")
-.value;
-
-
-
-
 
 const multiplicador =
-MULT[complexidade]
-|| 1;
+
+MULT[
+$("complexidade")
+.value
+]
+||1;
+
 
 
 
@@ -1575,6 +1915,7 @@ MULT[complexidade]
 
 
 const horas =
+
 parseFloat(
 $("horas")
 .value || 0
@@ -1585,7 +1926,9 @@ $("horas")
 
 
 
+
 const valorBase =
+
 
 horas *
 
@@ -1601,11 +1944,12 @@ multiplicador;
 
 const adicionalUrgencia =
 
+
 urgente
 
 ?
 
-valorBase * 0.25
+valorBase * .25
 
 :
 
@@ -1617,8 +1961,8 @@ valorBase * 0.25
 
 
 
-
 const piso =
+
 
 parseFloat(
 $("pisoMinimo")
@@ -1631,7 +1975,8 @@ $("pisoMinimo")
 
 
 
-const valorTotal =
+const total =
+
 
 Math.max(
 
@@ -1647,9 +1992,8 @@ piso
 
 
 
-
-
 const percentualEntrada =
+
 
 parseFloat(
 $("percEntrada")
@@ -1666,9 +2010,11 @@ $("percEntrada")
 
 
 
+
 const entrada =
 
-valorTotal *
+
+total *
 
 percentualEntrada;
 
@@ -1680,7 +2026,8 @@ percentualEntrada;
 
 const saldo =
 
-valorTotal -
+
+total -
 
 entrada;
 
@@ -1691,6 +2038,7 @@ entrada;
 
 
 const parcelas =
+
 
 Math.max(
 
@@ -1711,6 +2059,7 @@ $("parcelas")
 
 const valorParcela =
 
+
 saldo /
 
 parcelas;
@@ -1722,11 +2071,10 @@ parcelas;
 
 
 
-
 /*
-===============================
-  ATUALIZAÇÃO DO PAINEL
-===============================
+====================================================
+SAÍDA DOS RESULTADOS
+====================================================
 */
 
 
@@ -1739,6 +2087,7 @@ moeda(valorHora);
 
 $("outMult")
 .textContent =
+
 multiplicador
 .toFixed(1)
 .replace(".",",")
@@ -1761,7 +2110,7 @@ moeda(adicionalUrgencia);
 
 $("outTotal")
 .textContent =
-moeda(valorTotal);
+moeda(total);
 
 
 
@@ -1789,19 +2138,16 @@ moeda(valorParcela);
 
 
 
-/*
-==================================================
-  INICIALIZAÇÃO
-==================================================
-*/
-
 
 calcular();
+
 
 
 </script>
 
 
+
 </body>
 
 </html>
+
