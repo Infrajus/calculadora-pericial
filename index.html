@@ -16,39 +16,24 @@ Calculadora de Precificação Pericial InfraJus
 
 <style>
 
-
 :root{
 
-
-/* CAMURÇA PREMIUM */
-
---camurca-escuro:#5A3B29;
---camurca:#765139;
---camurca-claro:#987050;
-
-
-/* METAIS */
+--camurca-escuro:#513321;
+--camurca:#68452E;
+--camurca-claro:#896042;
 
 --cobre:#A66A3F;
 --cobre-claro:#D2A06A;
 --bronze:#8B572F;
 --dourado:#C9A15B;
 
-
-/* TEXTO */
-
 --marrom-texto:#332016;
 --creme:#F3DFC3;
 
-
-/* SOMBRAS */
-
 --sombra:
-rgba(35,18,10,.35);
-
+rgba(25,12,5,.45);
 
 }
-
 
 
 
@@ -60,48 +45,37 @@ box-sizing:border-box;
 
 
 
-
 body{
-
 
 margin:0;
 
-
 min-height:100vh;
 
-
 font-family:'Inter',sans-serif;
-
 
 color:var(--marrom-texto);
 
 
-
 background:
-
-
 
 radial-gradient(
 circle at 15% 10%,
-rgba(255,230,190,.15),
+rgba(255,220,170,.12),
 transparent 35%
 ),
 
-
 radial-gradient(
-circle at 80% 80%,
-rgba(0,0,0,.18),
-transparent 40%
+circle at 85% 80%,
+rgba(0,0,0,.20),
+transparent 45%
 ),
-
 
 linear-gradient(
 135deg,
-#67452F,
+#68452E,
 #513321,
-#896042
+#80583B
 );
-
 
 
 }
@@ -109,35 +83,27 @@ linear-gradient(
 
 
 
-/* =========================
+/* =====================
    CABEÇALHO
-========================= */
+===================== */
 
 
 .topbar{
 
-
-padding:35px 45px;
-
+padding:32px 45px;
 
 display:flex;
 
-
 justify-content:space-between;
-
 
 align-items:center;
 
-
 flex-wrap:wrap;
-
 
 gap:20px;
 
 
-
 background:
-
 
 linear-gradient(
 145deg,
@@ -146,62 +112,47 @@ rgba(74,43,25,.96)
 );
 
 
-
 border-bottom:
 
 2px solid var(--cobre-claro);
 
 
-
 box-shadow:
-
 
 0 15px 40px rgba(0,0,0,.35);
 
-
-
 }
+
 
 
 
 .logo-area{
 
-
 display:flex;
 
-
 flex-direction:column;
-
 
 }
 
 
 
-.logo{
 
+.logo{
 
 font-family:'Allura',cursive;
 
-
 font-size:58px;
-
 
 line-height:.9;
 
-
 color:
-
 
 var(--cobre-claro);
 
 
-
 text-shadow:
 
-
-0 2px 8px rgba(0,0,0,.4);
-
-
+0 3px 10px rgba(0,0,0,.45);
 
 }
 
@@ -209,25 +160,19 @@ text-shadow:
 
 .logo-title{
 
-
 font-family:'Cormorant Garamond',serif;
 
+font-size:27px;
 
-font-size:25px;
-
+font-weight:700;
 
 letter-spacing:2px;
 
-
 text-transform:uppercase;
-
 
 color:#E8C99A;
 
-
-
-margin-top:8px;
-
+margin-top:12px;
 
 
 }
@@ -236,18 +181,15 @@ margin-top:8px;
 
 .logo-sub{
 
-
 font-size:11px;
-
 
 letter-spacing:5px;
 
-
 text-transform:uppercase;
-
 
 color:#D8B88A;
 
+margin-top:5px;
 
 }
 
@@ -256,56 +198,41 @@ color:#D8B88A;
 
 .tag{
 
-
 font-size:12px;
-
 
 letter-spacing:3px;
 
-
 text-transform:uppercase;
 
-
 color:#E7CCAA;
-
-
 
 }
 
 
 
 
-/* =========================
+/* =====================
    ÁREA PRINCIPAL
-========================= */
+===================== */
 
 
 .wrap{
 
-
 max-width:1200px;
 
-
 margin:auto;
-
 
 padding:45px 25px 70px;
 
 
-
 display:grid;
-
-
 
 grid-template-columns:
 
 1.05fr .95fr;
 
 
-
 gap:35px;
-
-
 
 }
 
@@ -314,26 +241,20 @@ gap:35px;
 
 @media(max-width:900px){
 
-
 .wrap{
-
 
 grid-template-columns:1fr;
 
+}
 
 }
 
 
 
-}
 
-
-
-
-
-/* =========================
-   CARTÕES
-========================= */
+/* =====================
+   PAINÉIS
+===================== */
 
 
 .panel{
@@ -341,21 +262,15 @@ grid-template-columns:1fr;
 
 background:
 
-
 linear-gradient(
-
 145deg,
-
 rgba(205,160,110,.78),
-
 rgba(139,91,50,.72)
-
 );
 
 
 
 border:
-
 
 2px solid rgba(210,160,106,.75);
 
@@ -383,59 +298,31 @@ inset 0 2px 5px rgba(255,240,210,.35);
 backdrop-filter:blur(8px);
 
 
-
 }
+
 
 
 
 .panel h2{
 
-
 font-family:'Cormorant Garamond',serif;
-
 
 font-size:34px;
 
-
 margin:0 0 10px;
-
 
 color:#332016;
 
-
-
 }
 
-
-
-.sub{
-
-
-font-size:14px;
-
-
-line-height:1.7;
-
-
-color:#4D3020;
-
-
-margin-bottom:30px;
-
-
-
-}
- <style>
-
-
-/* =========================
-   CAMPOS EM ALTO RELEVO
-========================= */
+/* =====================
+   CAMPOS PREMIUM
+===================== */
 
 
 .field{
 
-margin-bottom:24px;
+margin-bottom:20px;
 
 }
 
@@ -453,7 +340,7 @@ font-size:12px;
 font-weight:700;
 
 
-letter-spacing:1.2px;
+letter-spacing:1.1px;
 
 
 text-transform:uppercase;
@@ -462,7 +349,7 @@ text-transform:uppercase;
 color:#3D2618;
 
 
-margin-bottom:9px;
+margin-bottom:5px;
 
 
 
@@ -481,7 +368,6 @@ width:100%;
 padding:15px 17px;
 
 
-
 border-radius:14px;
 
 
@@ -497,8 +383,8 @@ background:
 
 linear-gradient(
 145deg,
-#E5C49B,
-#BD895A
+#E3BE90,
+#B98250
 );
 
 
@@ -524,24 +410,12 @@ inset -4px -4px 8px rgba(255,238,205,.55),
 
 
 
-transition:.35s;
+transition:.3s;
 
 
 
 }
 
-
-
-.field input:hover,
-
-.field select:hover{
-
-
-transform:translateY(-1px);
-
-
-
-}
 
 
 
@@ -553,7 +427,6 @@ transform:translateY(-1px);
 outline:none;
 
 
-
 border-color:#F0C98B;
 
 
@@ -561,7 +434,7 @@ border-color:#F0C98B;
 box-shadow:
 
 
-0 0 0 4px rgba(210,160,106,.3),
+0 0 0 4px rgba(210,160,106,.30),
 
 
 inset 3px 3px 8px rgba(60,30,15,.25);
@@ -569,7 +442,6 @@ inset 3px 3px 8px rgba(60,30,15,.25);
 
 
 }
-
 
 
 
@@ -609,9 +481,31 @@ grid-template-columns:1fr;
 
 
 
-/* =========================
+
+.hint{
+
+
+font-size:12px;
+
+
+color:#6B3E20;
+
+
+margin-top:5px;
+
+
+font-style:italic;
+
+
+}
+
+
+
+
+
+/* =====================
    BOTÕES
-========================= */
+===================== */
 
 
 .toggle{
@@ -647,7 +541,6 @@ border:
 
 
 background:
-
 
 linear-gradient(
 145deg,
@@ -688,7 +581,7 @@ transition:.3s;
 .toggle button:hover{
 
 
-transform:translateY(-3px);
+transform:translateY(-2px);
 
 
 }
@@ -699,7 +592,6 @@ transform:translateY(-3px);
 
 
 background:
-
 
 linear-gradient(
 135deg,
@@ -732,7 +624,6 @@ border-top:
 1px solid rgba(90,55,30,.35);
 
 
-
 }
 
 
@@ -758,7 +649,6 @@ text-transform:uppercase;
 color:#55311E;
 
 
-
 }
 
 
@@ -766,420 +656,9 @@ color:#55311E;
 
 
 
-/* =========================
-   PAINEL DE RESULTADO
-========================= */
-
-
-.resultado{
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-
-background:
-
-
-linear-gradient(
-145deg,
-#392115,
-#1D1009
-);
-
-
-
-border:
-
-2px solid var(--cobre-claro);
-
-
-
-color:white;
-
-
-
-min-height:700px;
-
-
-
-box-shadow:
-
-
-0 30px 70px rgba(0,0,0,.45),
-
-
-inset 0 0 40px rgba(210,160,106,.12);
-
-
-
-}
-
-
-
-
-/* ESTÁTUA DA JUSTIÇA GRANDE */
-
-
-.marca-justica{
-
-
-position:absolute;
-
-
-
-width:650px;
-
-
-
-height:650px;
-
-
-
-object-fit:contain;
-
-
-
-right:-150px;
-
-
-
-top:50px;
-
-
-
-opacity:.12;
-
-
-
-filter:
-
-
-sepia(40%)
-
-
-contrast(120%);
-
-
-
-z-index:0;
-
-
-
-}
-
-
-
-
-.conteudo{
-
-
-position:relative;
-
-
-z-index:2;
-
-
-}
-
-
-
-
-.resultado h2{
-
-
-font-family:'Cormorant Garamond',serif;
-
-
-font-size:36px;
-
-
-color:#E9C58D;
-
-
-
-}
-
-
-
-.resultado .sub{
-
-
-color:#D7B891;
-
-
-}
-
-
-
-
-
-.case-name{
-
-
-font-family:'IBM Plex Mono',monospace;
-
-
-color:#D6A46A;
-
-
-font-size:13px;
-
-
-margin:25px 0;
-
-
-}
-
-
-
-
-
-
-
-.linha{
-
-
-display:flex;
-
-
-justify-content:space-between;
-
-
-align-items:center;
-
-
-
-gap:15px;
-
-
-
-padding:14px 0;
-
-
-border-bottom:
-
-1px solid rgba(255,255,255,.15);
-
-
-
-}
-
-
-
-.linha span{
-
-
-color:#DFC6A8;
-
-
-}
-
-
-
-
-.linha strong{
-
-
-font-family:'IBM Plex Mono',monospace;
-
-
-font-size:15px;
-
-
-color:#F2CF95;
-
-
-white-space:nowrap;
-
-
-
-}
-
-
-
-
-
-
-/* CAIXA DO VALOR FINAL */
-
-
-.total-premium{
-
-
-margin-top:35px;
-
-
-
-padding:30px 25px;
-
-
-
-width:100%;
-
-
-
-border-radius:18px;
-
-
-
-background:
-
-
-linear-gradient(
-145deg,
-rgba(166,106,63,.75),
-rgba(70,35,15,.9)
-);
-
-
-
-border:
-
-
-2px solid #D7A86D;
-
-
-
-box-shadow:
-
-
-inset 0 0 25px rgba(255,220,150,.18),
-
-
-0 15px 30px rgba(0,0,0,.35);
-
-
-
-text-align:center;
-
-
-
-overflow:hidden;
-
-
-
-}
-
-
-
-
-.total-premium span{
-
-
-display:block;
-
-
-font-size:12px;
-
-
-letter-spacing:3px;
-
-
-text-transform:uppercase;
-
-
-color:#E8C899;
-
-
-}
-
-
-
-
-.total-premium strong{
-
-
-display:block;
-
-
-
-margin-top:15px;
-
-
-
-font-family:'IBM Plex Mono',monospace;
-
-
-
-font-size:clamp(24px,4vw,38px);
-
-
-
-color:white;
-
-
-
-letter-spacing:-1px;
-
-
-
-}
-
-
-
-
-
-.pagamento h3{
-
-
-font-family:'Cormorant Garamond',serif;
-
-
-font-size:28px;
-
-
-color:#E8C899;
-
-
-
-}
-
-
-
-.observacao{
-
-
-margin-top:30px;
-
-
-padding:20px;
-
-
-border-left:
-
-3px solid var(--cobre-claro);
-
-
-
-background:
-
-rgba(255,220,170,.08);
-
-
-
-color:#E5CBA8;
-
-
-
-font-style:italic;
-
-
-line-height:1.7;
-
-
-font-size:13px;
-
-
-
-}
-
-
-</style>
-
+/* =====================
+   FORMULÁRIO
+===================== */
 
 
 <div class="wrap">
@@ -1187,42 +666,53 @@ font-size:13px;
 
 <div class="panel">
 
+
 <h2>
 Dados do caso
 </h2>
 
 
 <p class="sub">
-Preencha os parâmetros técnicos para estimar a precificação pericial.
+
+Preencha os dados técnicos para estimativa de honorários periciais.
+
 </p>
 
 
+
+
 <div class="field">
+
 
 <label>
 Nome do caso / cliente
 </label>
 
-<input 
-id="nomeCaso"
+
+<input
 type="text"
+id="nomeCaso"
 placeholder="Ex.: Silva vs. Silva — TJPR">
+
 
 </div>
 
 
 
+
+
 <div class="field">
+
 
 <label>
 Tipo de perícia
 </label>
 
 
-<input 
-id="tipoPericia"
+<input
 list="tiposPericia"
-placeholder="Digite ou selecione">
+id="tipoPericia"
+placeholder="Digite ou selecione...">
 
 
 <datalist id="tiposPericia"></datalist>
@@ -1234,97 +724,135 @@ placeholder="Digite ou selecione">
 </div>
 
 
+
+
+
 <div class="row2">
 
+
 <div class="field">
+
 
 <label>
 Tipo de hora
 </label>
 
+
 <select id="tipoHora">
+
 
 <option value="Padrao">
 Hora técnica padrão
 </option>
 
+
 <option value="Especializada">
 Hora técnica especializada
 </option>
 
+
 </select>
+
 
 </div>
 
 
 
+
+
 <div class="field">
+
 
 <label>
 Complexidade
 </label>
 
+
 <select id="complexidade">
+
 
 <option value="Baixa">
 Baixa (1,0x)
 </option>
 
+
 <option value="Media">
 Média (1,3x)
 </option>
+
 
 <option value="Alta">
 Alta (1,6x)
 </option>
 
+
 <option value="Excepcional">
 Excepcional (2,0x)
 </option>
 
+
 </select>
 
-</div>
 
 </div>
+
+
+</div>
+
+
+
+
+
 <div class="row2">
 
+
 <div class="field">
+
 
 <label>
 Horas técnicas estimadas
 </label>
 
+
 <input
-id="horas"
 type="number"
+id="horas"
 value="10"
 min="0"
 step="0.5">
+
 
 </div>
 
 
 
+
+
 <div class="field">
+
 
 <label>
 Número de parcelas
 </label>
 
+
 <input
-id="parcelas"
 type="number"
+id="parcelas"
 value="6"
 min="1">
 
-</div>
 
 </div>
+
+
+</div>
+
 
 
 
 <div class="field">
+
 
 <label>
 Caso urgente?
@@ -1333,12 +861,14 @@ Caso urgente?
 
 <div class="toggle">
 
+
 <button
 type="button"
 id="urgSim"
 onclick="setUrgencia(true)">
 Sim +25%
 </button>
+
 
 
 <button
@@ -1350,12 +880,25 @@ Não
 </button>
 
 
-</div>
 
 </div>
 
 
+</div>
+   
 
+.sub{
+
+font-size:14px;
+
+line-height:1.7;
+
+color:#4D3020;
+
+margin-bottom:30px;
+
+}
+   
 <details>
 
 <summary>
@@ -1378,7 +921,9 @@ id="valorHoraPadrao"
 type="number"
 value="250">
 
+
 </div>
+
 
 
 
@@ -1394,10 +939,12 @@ id="valorHoraEspecializada"
 type="number"
 value="400">
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -1416,7 +963,9 @@ id="percEntrada"
 type="number"
 value="60">
 
+
 </div>
+
 
 
 
@@ -1432,6 +981,7 @@ id="pisoMinimo"
 type="number"
 value="800">
 
+
 </div>
 
 
@@ -1441,13 +991,14 @@ value="800">
 </details>
 
 
-
 </div>
 
 
 
 
-<!-- RESULTADO -->
+
+<!-- PAINEL DE RESULTADO -->
+
 
 <div class="panel resultado">
 
@@ -1456,7 +1007,7 @@ value="800">
 <img
 src="Screenshot_20260708_121250_Chrome.jpg"
 class="marca-justica"
-alt="Justiça">
+alt="Símbolo da Justiça">
 
 
 
@@ -1464,19 +1015,22 @@ alt="Justiça">
 
 
 <h2>
-Memorial de Precificação
+Resultado da Precificação
 </h2>
 
 
 <p class="sub">
-Composição técnica de honorários periciais.
+Composição técnica dos honorários periciais.
 </p>
+
 
 
 
 <div class="case-name" id="outCase">
 —
 </div>
+
+
 
 
 
@@ -1490,7 +1044,10 @@ Valor hora aplicado
 R$ 0
 </strong>
 
+
 </div>
+
+
 
 
 
@@ -1504,7 +1061,10 @@ Multiplicador técnico
 1,0x
 </strong>
 
+
 </div>
+
+
 
 
 
@@ -1518,21 +1078,27 @@ Valor base
 R$ 0
 </strong>
 
+
 </div>
+
+
 
 
 
 <div class="linha">
 
 <span>
-Adicional urgência
+Adicional de urgência
 </span>
 
 <strong id="outUrg">
 R$ 0
 </strong>
 
+
 </div>
+
+
 
 
 
@@ -1550,8 +1116,10 @@ R$ 0
 </strong>
 
 
-
 </div>
+
+
+
 
 
 
@@ -1565,6 +1133,7 @@ Estrutura de pagamento
 
 
 
+
 <div class="linha">
 
 <span>
@@ -1574,6 +1143,7 @@ Entrada inicial
 <strong id="outEntrada">
 R$ 0
 </strong>
+
 
 </div>
 
@@ -1589,6 +1159,7 @@ Saldo remanescente
 R$ 0
 </strong>
 
+
 </div>
 
 
@@ -1596,34 +1167,41 @@ R$ 0
 <div class="linha">
 
 <span>
-Valor por parcela
+Valor de cada parcela
 </span>
 
 <strong id="outParcela">
 R$ 0
 </strong>
 
+
+</div>
+
+
+
 </div>
 
 
 
-</div>
 
 
 
 <div class="observacao">
 
-O valor apresentado representa uma referência técnica de precificação considerando tempo, especialização, complexidade e responsabilidade profissional.
+Este cálculo representa uma referência técnica baseada em horas, especialização, complexidade e responsabilidade profissional.
+
+</div>
+
+
 
 </div>
 
 
 </div>
 
-</div>
-
 
 </div>
+
 
 
 
@@ -1633,49 +1211,56 @@ O valor apresentado representa uma referência técnica de precificação consid
 const MAPA_PERICIA = {
 
 
-"Perícia documentoscópica simples":{
+"Perícia documentoscópica simples":
+{
 hora:"Padrao",
 complex:"Baixa",
 dica:"Análise documental objetiva."
 },
 
 
-"Perícia grafotécnica":{
+"Perícia grafotécnica":
+{
 hora:"Padrao",
 complex:"Media",
 dica:"Comparação gráfica e análise técnica."
 },
 
 
-"Perícia criminal / laudo complementar":{
+"Perícia criminal / laudo complementar":
+{
 hora:"Especializada",
 complex:"Alta",
 dica:"Metodologias técnicas complementares."
 },
 
 
-"Prosopografia / reconhecimento facial":{
+"Prosopografia / reconhecimento facial":
+{
 hora:"Especializada",
 complex:"Alta",
 dica:"Análise facial comparativa."
 },
 
 
-"Entomologia forense":{
+"Entomologia forense":
+{
 hora:"Especializada",
 complex:"Excepcional",
-dica:"Área altamente especializada."
+dica:"Área especializada."
 },
 
 
-"Fotogrametria":{
+"Fotogrametria":
+{
 hora:"Especializada",
 complex:"Alta",
-dica:"Reconstrução técnica por imagens."
+dica:"Reconstrução técnica."
 }
 
 
 };
+
 
 
 
@@ -1685,13 +1270,17 @@ const $ = id => document.getElementById(id);
 
 Object.keys(MAPA_PERICIA).forEach(nome=>{
 
-let op=document.createElement("option");
+let option =
+document.createElement("option");
 
-op.value=nome;
+option.value=nome;
 
-$("tiposPericia").appendChild(op);
+$("tiposPericia")
+.appendChild(option);
+
 
 });
+
 
 
 
@@ -1699,25 +1288,35 @@ let urgente=false;
 
 
 
+
 function setUrgencia(valor){
+
 
 urgente=valor;
 
 
-$("urgSim").classList.toggle("active",valor);
+$("urgSim")
+.classList.toggle("active",valor);
 
-$("urgNao").classList.toggle("active",!valor);
+
+$("urgNao")
+.classList.toggle("active",!valor);
 
 
 calcular();
+
 
 }
 
 
 
-function moeda(v){
 
-return Number(v).toLocaleString(
+
+function moeda(valor){
+
+
+return Number(valor)
+.toLocaleString(
 "pt-BR",
 {
 style:"currency",
@@ -1725,7 +1324,9 @@ currency:"BRL"
 }
 );
 
+
 }
+
 
 
 
@@ -1743,24 +1344,32 @@ Excepcional:2
 
 
 
-$("tipoPericia").addEventListener(
+
+
+
+$("tipoPericia")
+.addEventListener(
 "input",
 e=>{
 
 
-let p=MAPA_PERICIA[e.target.value];
+let item =
+MAPA_PERICIA[e.target.value];
 
 
-if(p){
+if(item){
 
 
-$("tipoHora").value=p.hora;
-
-$("complexidade").value=p.complex;
+$("tipoHora").value=item.hora;
 
 
-$("hintPericia").textContent=
-"Parâmetro sugerido: "+p.dica;
+$("complexidade").value=item.complex;
+
+
+$("hintPericia").textContent =
+"Parâmetro sugerido: "
++
+item.dica;
 
 
 }
@@ -1770,6 +1379,9 @@ calcular();
 
 
 });
+
+
+
 
 
 
@@ -1785,10 +1397,12 @@ calcular();
 "pisoMinimo",
 "nomeCaso"
 
-].forEach(id=>{
+]
+.forEach(id=>{
 
 
-$(id).addEventListener(
+$(id)
+.addEventListener(
 "input",
 calcular
 );
@@ -1800,7 +1414,9 @@ calcular
 
 
 
+
 function calcular(){
+
 
 
 $("outCase").textContent =
@@ -1808,53 +1424,104 @@ $("nomeCaso").value || "—";
 
 
 
+
 let hora =
+
 $("tipoHora").value==="Especializada"
+
 ?
-Number($("valorHoraEspecializada").value)
+
+Number(
+$("valorHoraEspecializada").value
+)
+
 :
-Number($("valorHoraPadrao").value);
 
-
-
-let mult =
-MULT[$("complexidade").value] || 1;
-
-
-
-let base =
-Number($("horas").value) *
-hora *
-mult;
-
-
-
-let urg =
-urgente ? base*.25 : 0;
-
-
-
-let total =
-Math.max(
-base+urg,
-Number($("pisoMinimo").value)
+Number(
+$("valorHoraPadrao").value
 );
 
 
 
+
+
+let mult =
+
+MULT[$("complexidade").value]
+||1;
+
+
+
+
+
+let base =
+
+Number($("horas").value)
+
+*
+
+hora
+
+*
+
+mult;
+
+
+
+
+
+let urg =
+
+urgente
+
+?
+
+base*.25
+
+:
+
+0;
+
+
+
+
+
+let total =
+
+Math.max(
+
+base+urg,
+
+Number($("pisoMinimo").value)
+
+);
+
+
+
+
+
 let entrada =
+
 total *
+
 (Number($("percEntrada").value)/100);
 
 
 
+
+
 let saldo =
+
 total-entrada;
 
 
 
+
+
 let parcela =
+
 saldo /
+
 Math.max(
 Number($("parcelas").value),
 1
@@ -1862,26 +1529,42 @@ Number($("parcelas").value),
 
 
 
-$("outValorHora").textContent=moeda(hora);
 
-$("outMult").textContent=
+
+$("outValorHora").textContent =
+moeda(hora);
+
+
+$("outMult").textContent =
 mult.toFixed(1).replace(".",",")+"x";
 
-$("outBase").textContent=moeda(base);
 
-$("outUrg").textContent=moeda(urg);
+$("outBase").textContent =
+moeda(base);
 
-$("outTotal").textContent=moeda(total);
 
-$("outEntrada").textContent=moeda(entrada);
+$("outUrg").textContent =
+moeda(urg);
 
-$("outSaldo").textContent=moeda(saldo);
 
-$("outParcela").textContent=moeda(parcela);
+$("outTotal").textContent =
+moeda(total);
 
+
+$("outEntrada").textContent =
+moeda(entrada);
+
+
+$("outSaldo").textContent =
+moeda(saldo);
+
+
+$("outParcela").textContent =
+moeda(parcela);
 
 
 }
+
 
 
 
@@ -1894,3 +1577,4 @@ calcular();
 </body>
 
 </html>
+
